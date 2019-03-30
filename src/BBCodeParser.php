@@ -26,25 +26,25 @@ class BBCodeParser
 
         'underline' => [
             'pattern' => '/\[u\](.*?)\[\/u\]/s',
-            'replace' => '<u>$1</u>',
+            'replace' => '<span class="underline">$1</span>',
             'content' => '$1',
         ],
 
         'linethrough' => [
             'pattern' => '/\[s\](.*?)\[\/s\]/s',
-            'replace' => '<strike>$1</strike>',
+            'replace' => '<span class="strike">$1</span>',
             'content' => '$1',
         ],
 
         'size' => [
             'pattern' => '/\[size\=([1-7])\](.*?)\[\/size\]/s',
-            'replace' => '<font size="$1">$2</font>',
+            'replace' => '<span style="font-size:"$1"">$2</span>',
             'content' => '$2',
         ],
 
         'color' => [
             'pattern' => '/\[color\=(#[A-f0-9]{6}|#[A-f0-9]{3})\](.*?)\[\/color\]/s',
-            'replace' => '<font color="$1">$2</font>',
+            'replace' => '<span style="color: "$1"">$2</span>',
             'content' => '$2',
         ],
 
@@ -132,10 +132,10 @@ class BBCodeParser
             'content' => '$1',
         ],
 
-        'linebreak' => [
-            'pattern' => '/\r\n/',
-            'replace' => '<br />',
-            'content' => '',
+        'emote' => [
+            'pattern' => '/\:(.*?)\:/s',
+            'replace' => '<img src="https://songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1" alt="$1" class="emote">',
+            'content' => '$1',
         ],
     ];
 
