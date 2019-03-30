@@ -132,11 +132,11 @@ class BBCodeParser
             'content' => '$1',
         ],
 
-        'emote' => [
-            'pattern' => '/\:(.*?)\:/s',
-            'replace' => '<img src="https://songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1" alt="$1" class="emote">',
-            'content' => '$1',
-        ],
+	    'emote' => [
+		    'pattern' => '/\:(.*?)\:/i',
+		    'replace' => '<img src="//songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
+		    'content' => '$1',
+	    ],
     ];
 
     /**
@@ -192,7 +192,7 @@ class BBCodeParser
      */
     protected function searchAndReplace($pattern, $replace, $source)
     {
-        while (preg_match($pattern, $source)) {
+        while (preg_match_all($pattern, $source)) {
             $source = preg_replace($pattern, $replace, $source);
         }
 
