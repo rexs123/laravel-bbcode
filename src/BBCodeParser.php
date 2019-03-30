@@ -132,11 +132,11 @@ class BBCodeParser
             'content' => '$1',
         ],
 
-	    'emote' => [
-		    'pattern' => '/\:(.*?)\:/i',
-		    'replace' => '<img src="//songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
-		    'content' => '$1',
-	    ],
+//	    'emote' => [
+//		    'pattern' => '/\:(.*?)\:a?/ixD',
+//		    'replace' => '<span src="//songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
+//		    'content' => '$1',
+//	    ],
     ];
 
     /**
