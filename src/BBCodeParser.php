@@ -192,7 +192,7 @@ class BBCodeParser
      */
     protected function searchAndReplace($pattern, $replace, $source)
     {
-        while (preg_match_all($pattern, $source)) {
+        while (preg_match($pattern, $source)) {
             $source = preg_replace($pattern, $replace, $source);
         }
 
