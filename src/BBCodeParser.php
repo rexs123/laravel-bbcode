@@ -12,6 +12,11 @@ class BBCodeParser
 	 * @var array
 	 */
 	protected $parsers = [
+		'center' => [
+			'pattern' => '/\[center\](.*?)\[\/center\]/s',
+			'replace' => '<div class="text-center">$1</div>',
+			'content' => '$1'
+		],
 		'h1' => [
 			'pattern' => '/\[h1\](.*?)\[\/h1\]/s',
 			'replace' => '<h1>$1</h1>',
