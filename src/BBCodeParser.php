@@ -17,6 +17,21 @@ class BBCodeParser
 			'replace' => '<div class="text-center">$1</div>',
 			'content' => '$1'
 		],
+		'right' => [
+			'pattern' => '/\[right\](.*?)\[\/right\]/s',
+			'replace' => '<div class="text-right">$1</div>',
+			'content' => '$1'
+		],
+		'left' => [
+			'pattern' => '/\[left\](.*?)\[\/left\]/s',
+			'replace' => '<div class="text-left">$1</div>',
+			'content' => '$1'
+		],
+		'color' => [
+			'pattern' => '/\[color=([#a-z0-9]+)\](.*?)\[\/color\]/s',
+			'replace' => '<span style="color:$1">$2</span>',
+			'content' => '$2'
+		],
 		'h1' => [
 			'pattern' => '/\[h1\](.*?)\[\/h1\]/s',
 			'replace' => '<h1>$1</h1>',
@@ -153,11 +168,11 @@ class BBCodeParser
 			'content' => '$1',
 		],
 
-//		'emote' => [
-//			'pattern' => '/\:(.*?)\:/s',
-//			'replace' => '<span src="//songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
-//			'content' => '$1',
-//		],
+		'emote' => [
+			'pattern' => '/\[:(.*?)\:]/s',
+			'replace' => '<img src="//songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
+			'content' => '$1',
+		],
 	];
 
 	/**
