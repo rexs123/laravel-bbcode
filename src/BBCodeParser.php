@@ -99,7 +99,7 @@ class BBCodeParser
 		],
 		'image' => [
 			'pattern' => '/\[img\](.*?)\[\/img\]/s',
-			'replace' => '<img src="//images.weserv.nl/?url=$1">',
+			'replace' => '<img src="//proxy.songoda.com/$1">',
 			'content' => '$1'
 		],
 		'orderedlistnumerical' => [
@@ -170,7 +170,7 @@ class BBCodeParser
 
 		'emote' => [
 			'pattern' => '/\[:(.*?)\:]/s',
-			'replace' => '<img src="//songoda.sfo2.cdn.digitaloceanspaces.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
+			'replace' => '<img src="//cdn.songoda.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="$1" >',
 			'content' => '$1',
 		],
 	];
@@ -265,7 +265,7 @@ class BBCodeParser
 	 */
 	public function only($only = null)
 	{
-		$only                 = (is_array($only)) ? $only : func_get_args();
+		$only = (is_array($only)) ? $only : func_get_args();
 		$this->enabledParsers = $this->arrayOnly($this->parsers, $only);
 
 		return $this;
@@ -279,7 +279,7 @@ class BBCodeParser
 	 */
 	public function except($except = null)
 	{
-		$except               = (is_array($except)) ? $except : func_get_args();
+		$except = (is_array($except)) ? $except : func_get_args();
 		$this->enabledParsers = $this->arrayExcept($this->parsers, $except);
 
 		return $this;
