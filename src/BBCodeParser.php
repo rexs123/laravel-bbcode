@@ -28,8 +28,13 @@ class BBCodeParser
 			'content' => '$1'
 		],
 		'color' => [
-			'pattern' => '/\[color=([#a-z0-9]+)\](.*?)\[\/color\]/s',
+			'pattern' => '/\[color=(.*?)\](.*?)\[\/color\]/s',
 			'replace' => '<span style="color:$1">$2</span>',
+			'content' => '$2'
+		],
+		'font' => [
+			'pattern' => '/\[font=([a-z0-9]+)\](.*?)\[\/font\]/s',
+			'replace' => '<span style="font-family:$1">$2</span>',
 			'content' => '$2'
 		],
 		'h1' => [
@@ -99,7 +104,7 @@ class BBCodeParser
 		],
 		'image' => [
 			'pattern' => '/\[img\](.*?)\[\/img\]/s',
-			'replace' => '<img src="//proxy.songoda.com/$1">',
+			'replace' => '<img src="//proxy.songoda.com/$1" draggable="false">',
 			'content' => '$1'
 		],
 		'orderedlistnumerical' => [
