@@ -170,7 +170,7 @@ class BBCodeParser
 
 		'emote' => [
 			'pattern' => '/\[:(.*?)\:]/s',
-			'replace' => '<img src="//cdn.songoda.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="&lsqb;:$1:&rsqb;" alt="&lsqb;:$1:&rsqb;">',
+			'replace' => '<img src="//cdn.songoda.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="&lsqb;:$1:&rsqb;" alt="&lsqb;:$1:&rsqb;"  draggable="false">',
 			'content' => '$1',
 		],
 	];
