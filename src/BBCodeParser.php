@@ -92,6 +92,11 @@ class BBCodeParser
 			'replace' => '<blockquote>$1</blockquote>',
 			'content' => '$1'
 		],
+		'spoiler' => [
+			'pattern' => '/\[spoiler\=(.*?)\](.*?)\[\/spoiler\]/s',
+			'replace' => '<input type="checkbox" id="spoiler"/><label for="spoiler">$1</label><div class="spoiler">$2</div>',
+			'content' => '$2'
+		],
 		'link' => [
 			'pattern' => '/\[url\](.*?)\[\/url\]/s',
 			'replace' => '<a href="$1">$1</a>',
