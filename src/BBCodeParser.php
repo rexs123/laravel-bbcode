@@ -177,7 +177,11 @@ class BBCodeParser
 			'replace' => '<td>$1</td>',
 			'content' => '$1',
 		],
-
+		'copy' => [
+			'pattern' => '/\[copy\=(.*?)\](.*?)\[\/copy\]/s',
+			'replace' => '<span id="clipboard" data-clipboard-text="$1" data-toggle="tooltip" data-placement="top" title="Click to copy">$2</span>',
+			'content' => '$2'
+		],
 		'emote' => [
 			'pattern' => '/\[:(.*?)\:]/s',
 			'replace' => '<img src="//cdn.songoda.com/emotes/$1.png" class="emote" data-toggle="tooltip" data-placement="top" title="&lsqb;:$1:&rsqb;" alt="&lsqb;:$1:&rsqb;"  draggable="false">',
