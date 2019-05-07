@@ -12,6 +12,21 @@ class BBCodeParser
 	 * @var array
 	 */
 	protected $parsers = [
+		'parseout' => [
+			'pattern' => '/</s',
+			'replace' => '&lt;',
+			'content' => '$1'
+		],
+		'parseout2' => [
+			'pattern' => '/>/s',
+			'replace' => '&gt;',
+			'content' => '$1'
+		],
+		'linebreak' => [
+			'pattern' => '/\n\r/s',
+			'replace' => '<br>',
+			'content' => '$1'
+		],
 		'center' => [
 			'pattern' => '/\[center\](.*?)\[\/center\]/s',
 			'replace' => '<div class="text-center">$1</div>',
@@ -32,10 +47,16 @@ class BBCodeParser
 			'replace' => '<span style="color:$1">$2</span>',
 			'content' => '$2'
 		],
+
 		'font' => [
 			'pattern' => '/\[font=([a-z0-9]+)\](.*?)\[\/font\]/s',
-			'replace' => '<span style="font-family:$1">$2</span>',
+			'replace' => '<p style="font-family:$1">$2</p>',
 			'content' => '$2'
+		],
+		'paragraph' => [
+			'pattern' => '/\[p\](.*?)\[\/p\]/s',
+			'replace' => '<p>$1</p>',
+			'content' => '$1'
 		],
 		'h1' => [
 			'pattern' => '/\[h1\](.*?)\[\/h1\]/s',
@@ -69,12 +90,12 @@ class BBCodeParser
 		],
 		'size' => [
 			'pattern' => '/\[size\=(.*?)\](.*?)\[\/size\]/s',
-			'replace' => '<span class="h$1">$2</span>',
+			'replace' => '<p class="h$1">$2</p>',
 			'content' => '$2'
 		],
 		'bold' => [
 			'pattern' => '/\[b\](.*?)\[\/b\]/s',
-			'replace' => '<b>$1</b>',
+			'replace' => '<strong>$1</strong>',
 			'content' => '$1'
 		],
 		'italic' => [
@@ -99,7 +120,7 @@ class BBCodeParser
 		],
 		'spoiler' => [
 			'pattern' => '/\[spoiler\=(.*?)\](.*?)\[\/spoiler\]/s',
-			'replace' => '<input type="checkbox" id="spoiler"/><label for="spoiler">$1</label><div class="spoiler">$2</div>',
+			'replace' => '<details><summary>$1</summary><div class="spoiler">$2</div></details>',
 			'content' => '$2'
 		],
 		'link' => [
