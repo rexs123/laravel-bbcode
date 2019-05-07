@@ -67,6 +67,11 @@ class BBCodeParser
 			'replace' => '<h6>$1</h6>',
 			'content' => '$1'
 		],
+		'size' => [
+			'pattern' => '/\[size\=(.*?)\](.*?)\[\/size\]/s',
+			'replace' => '<span class="h$1">$2</span>',
+			'content' => '$2'
+		],
 		'bold' => [
 			'pattern' => '/\[b\](.*?)\[\/b\]/s',
 			'replace' => '<b>$1</b>',
